@@ -12,6 +12,7 @@ from PyQt6.QtWidgets import (QAbstractItemView, QStyledItemDelegate, QApplicatio
                              QMainWindow, QMessageBox, QStatusBar, QPlainTextEdit, QTextBrowser, QProgressBar, QPushButton, QSpinBox, QTableWidget,
                              QTableWidgetItem, QVBoxLayout, QWidget)
 
+from .. import __version__
 from ..config.settings import ConfigError, Settings, default_config_path, load_settings, save_settings
 from ..domain.board import Position, apply_step
 from ..analysis.coach import NEAR_GOOD, user_loss
@@ -341,7 +342,7 @@ class SettingsDialog(QDialog):
 class MainWindow(QMainWindow):
     def __init__(self, settings: Settings) -> None:
         super().__init__()
-        self.setWindowTitle("Entraîneur de backgammon")
+        self.setWindowTitle(f"Entraîneur de backgammon {__version__}")
         self.settings = settings
         self.svc = TrainerService(settings)
         self.worker: ScanWorker | None = None
