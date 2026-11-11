@@ -1,0 +1,25 @@
+[project]
+name = "bgtrainer"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["PyQt6"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+bgtrainer = "bgtrainer.__main__:main"
+bgtrainer-cli = "bgtrainer.cli:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+bgtrainer = ["engine/gnubg_script.py", "ui/macos_style.qss"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
