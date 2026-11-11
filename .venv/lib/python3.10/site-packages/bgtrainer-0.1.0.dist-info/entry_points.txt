@@ -1,3 +1,0 @@
-[console_scripts]
-bgtrainer = bgtrainer.__main__:main
-bgtrainer-cli = bgtrainer.cli:main
