@@ -10,3 +10,7 @@ def test_version_coherente():
     assert bgtrainer.__version__ == py
     assert re.match(r"^\d+\.\d+\.\d+$", py)
     assert f"## [{py}]" in (root / "CHANGELOG.md").read_text()
+
+
+def test_icone_presente():
+    assert (Path(bgtrainer.__file__).parent / "ui" / "assets" / "icon.png").stat().st_size > 1000
